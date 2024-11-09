@@ -1,13 +1,26 @@
 import tkinter as tk
 import random
 
+# Function to get a random joke from the list
 def get_random_joke(jokes):
-    return random.choice(jokes)
+    return random.choice(jokes).strip()
 
+# Function to display a joke in the text area
 def tell_joke(text_area, jokes):
     joke = get_random_joke(jokes)
+    if '?' in joke:
+        setup, punchline = joke.split('?', 1)
+        text_area.delete(1.0, tk.END)
+        text_area.insert(tk.END, f"{setup}?\n\nPress Enter to see the punchline...")
+        text_area.bind("<Return>", lambda event: show_punchline(text_area, punchline))
+    else:
+        text_area.delete(1.0, tk.END)
+        text_area.insert(tk.END, "Invalid joke format.")
+
+# Function to display the punchline
+def show_punchline(text_area, punchline):
     text_area.delete(1.0, tk.END)
-    text_area.insert(tk.END, joke)
+    text_area.insert(tk.END, punchline)
 
 # Main program starts here
 root = tk.Tk()
@@ -25,8 +38,12 @@ text_area.pack(pady=10)
 joke_button = tk.Button(root, text="Tell Me a Joke!", command=lambda: tell_joke(text_area, jokes))
 joke_button.pack()
 
-# Read jokes from a file (replace "randomJokes.txt" with your file path)
-with open("randomjokes.txt", "r") as joke_file:
-    jokes = joke_file.readlines()
+# Read jokes from a file (replace "randomjokes.txt" with your file path)
+try:
+    with open("randomjokes.txt", "r") as joke_file:
+        jokes = joke_file.readlines()
+except FileNotFoundError:
+    jokes = []
+    text_area.insert(tk.END, "Error: Jokes file not found.")
 
 root.mainloop()
