@@ -26,7 +26,7 @@ joke_button = tk.Button(root, text="Tell Me a Joke!", command=lambda: tell_joke(
 joke_button.pack()
 
 # Read jokes from a file (replace "randomJokes.txt" with your file path)
-with open("randomJokes.txt", "r") as joke_file:
+with open("randomjokes.txt", "r") as joke_file:
     jokes = joke_file.readlines()
 
 root.mainloop()
