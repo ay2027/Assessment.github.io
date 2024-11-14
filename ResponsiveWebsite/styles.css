@@ -72,7 +72,7 @@ h2 {
 .left-side img {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Ensures left image fully covers the area */
+  object-fit: cover; 
 }
 
 .right-side {
@@ -84,8 +84,8 @@ h2 {
 
 .right-side img {
   width: 100%;
-  height: auto; /* Ensure the image maintains its aspect ratio */
-  object-fit: contain; /* This prevents the image from being cropped */
+  height: auto; 
+  object-fit: contain; 
 }
 
 .photo-gallery img {
@@ -182,24 +182,23 @@ h2 {
   }
 
   .right-side img {
-    object-fit: contain; /* Ensures the right images are fully visible */
+    object-fit: contain; 
   }
 
   .content-section {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping for larger content */
+    flex-wrap: wrap; 
     justify-content: space-between;
     gap: var(--spacing);
   }
 
   .subsection {
     flex: 1;
-    min-width: calc(33.33% - var(--spacing)); /* Adjusted to fit in a 3-column layout */
+    min-width: calc(33.33% - var(--spacing)); 
     box-sizing: border-box;
   }
 }
 
-/* Mobile or small screen view: 1 image in each row */
 @media (max-width: 1024px) {
   .photo-gallery {
     flex-direction: column;
@@ -217,12 +216,12 @@ h2 {
   .right-side img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Ensures images are fully visible */
+    object-fit: contain; 
     border-radius: 8px;
   }
 
   .content-section {
-    display: block; /* Stack subsections for smaller screens */
+    display: block; 
     gap: var(--spacing);
   }
 
