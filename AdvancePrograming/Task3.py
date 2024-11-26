@@ -10,15 +10,14 @@ def load_data():
     students = []
     with open("C:/Users/USER/Desktop/Test/studentMarks.txt", "r") as file:
         try:
-            # Read the total number of students from the first line
+            
             total_students = int(file.readline().strip())
             for line in file:
                 data = line.strip().split(',')
-                # Parse each student's data
                 student_code = int(data[0])
                 student_name = data[1].strip()
-                coursework_total = int(data[2])  # Only one coursework total
-                exam_mark = int(data[3])  # Exam mark
+                coursework_total = int(data[2])  
+                exam_mark = int(data[3]) 
                 overall_score = coursework_total + exam_mark
                 percentage = (overall_score / 160) * 100
                 grade = calculate_grade(percentage)
@@ -48,8 +47,8 @@ def calculate_grade(percentage):
         return "F"
 
 def update_text_area(content):
-    output_text.delete("1.0", tk.END)  # Clear the text area
-    output_text.insert(tk.END, content)  # Insert new content
+    output_text.delete("1.0", tk.END)  
+    output_text.insert(tk.END, content)  
 
 def view_all_records():
     result = ""
@@ -94,7 +93,7 @@ tk.Label(frame, text="Student Name:").grid(row=0, column=0)
 student_name_entry = tk.Entry(frame)
 student_name_entry.grid(row=0, column=1)
 
-output_text = tk.Text(root, wrap=tk.WORD, height=15, width=70)  # Text widget for output
+output_text = tk.Text(root, wrap=tk.WORD, height=15, width=70)  
 output_text.pack(pady=10)
 
 tk.Button(frame, text="View All Records", command=view_all_records).grid(row=1, column=0, padx=5, pady=5)
