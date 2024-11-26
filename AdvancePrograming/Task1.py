@@ -26,7 +26,7 @@ def isCorrect(user_answer, correct_answer, num1, num2, operation):
         print("Correct!")
         return 10
     else:
-        print("Incorrect. Try again.")
+        print("Incorrect, Try again.")
         second_attempt = int(input(f"{num1} {operation} {num2} = "))
         if second_attempt == correct_answer:
             print("Correct on second attempt.")
