@@ -48,26 +48,24 @@ def displayResults(score):
     else:
         print("Grade: F")
 
-def main():
-    while True:
-        displayMenu()
-        difficulty = int(input("Enter difficulty level (1, 2, or 3): "))
 
-        score = 0
-        for _ in range(10):
-            num1 = randomInt(difficulty)
-            num2 = randomInt(difficulty)
-            operation = decideOperation()
+while True:
+    displayMenu()
+    difficulty = int(input("Enter difficulty level (1, 2, or 3): "))
 
-            user_answer = displayProblem(num1, num2, operation)
-            correct_answer = eval(f"{num1}{operation}{num2}")
-            score += isCorrect(user_answer, correct_answer, num1, num2, operation)
+    score = 0
+    for _ in range(10):
+        num1 = randomInt(difficulty)
+        num2 = randomInt(difficulty)
+        operation = decideOperation()
 
-        displayResults(score)
+        user_answer = displayProblem(num1, num2, operation)
+        correct_answer = eval(f"{num1}{operation}{num2}")
+        score += isCorrect(user_answer, correct_answer, num1, num2, operation)
 
-        play_again = input("Do you want to play again? (yes/no): ")
-        if play_again.lower() != "yes":
-            break
+    displayResults(score)
 
-if __name__ == "__main__":
-    main()
+    play_again = input("Do you want to play again? (yes/no): ")
+    if play_again.lower() != "yes":
+        break
+
